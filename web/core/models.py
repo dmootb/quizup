@@ -4,6 +4,7 @@ from django.db import models
 class Question(models.Model):
     # The text of the question
     text = models.TextField()
+    category = models.CharField(max_length=255, default='Uncategorized')  
 
 class Answer(models.Model):
     # The question to which this answer belongs
