@@ -1,6 +1,6 @@
 # web/core/serializers.py
 from rest_framework import serializers
-from .models import Question, Answer
+from web.core.models import Question, Answer
 
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
