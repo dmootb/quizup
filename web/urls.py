@@ -1,8 +1,7 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import re_path, include
+from web.core.api.v1 import urls as apicore_v1_urls
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('web.core.urls', namespace='core')),  # Include the core app URLs
-    # Add more paths as needed
+    re_path(r"^api/v1/core/", include(apicore_v1_urls)),
 ]
