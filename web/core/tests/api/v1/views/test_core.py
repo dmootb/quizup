@@ -17,7 +17,6 @@ class QuestionViewSetTests(APITestCase):
         cls.client = APIClient()
         cls.creator = Creator()
 
-    
     def test_get_questions_with_answers(self):
         # Create a sample question with answers
         question = self.creator.create_question(question_text="Sample Question", category="General")
@@ -32,6 +31,6 @@ class QuestionViewSetTests(APITestCase):
         resJson = json.loads(response.content)
         print(resJson)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)  # Assuming you expect one question in the response
-        self.assertEqual(len(response.data[0]['answers']), 4)  # Assuming you expect four answers for each question
+        self.assertEqual(len(resJson), 1)  # Assuming you expect one question in the response
+        self.assertEqual(len(resJson[0]['answers']), 4)  # Assuming you expect four answers for each question
         # Add more assertions as needed
